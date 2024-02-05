@@ -1,0 +1,81 @@
+@if (!showImage) {
+<form
+  #editNoteForm="ngForm"
+  (ngSubmit)="updateNote()"
+  class="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96"
+>
+  @if (noteImage) {
+
+  <div
+    class="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40"
+  >
+    <img
+      class="note-img"
+      [src]="basePath + noteImage"
+      alt="card-image"
+      (click)="toggleSettings(settings)"
+    />
+    <div
+      #settings
+      class="mx-auto btns-div bg-gray-900 rounded justify-around flex items-center"
+    >
+      <i
+        class="fa cursor-pointer fa-solid fa-trash"
+        (click)="removeNoteImage()"
+      ></i>
+      <i
+        class="fa-regular fa-image cursor-pointer"
+        (click)="showImage = true"
+      ></i>
+    </div>
+  </div>
+  }
+
+  <div class="p-6">
+    <h5
+      class="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900"
+    >
+      <input
+        type="text"
+        id="title"
+        name="title"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+        placeholder="eg.birthday note"
+        required
+        [(ngModel)]="noteRequest.title"
+      />
+    </h5>
+    <p
+      class="block font-sans text-base antialiased font-light leading-relaxed text-inherit"
+    >
+      <textarea
+        id="desc"
+        rows="4"
+        name="description"
+        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+        placeholder="Leave a description..."
+        [(ngModel)]="noteRequest.description"
+      ></textarea>
+    </p>
+  </div>
+  <div class="p-6 pt-0">
+    <button
+      class="align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+      type="submit"
+      [disabled]="editNoteForm.invalid"
+    >
+      Update note
+    </button>
+  </div>
+</form>
+} @else {
+<i
+  class="fa-solid fa-arrow-left mx-2 fa-2x cursor-pointer"
+  (click)="showImage = false"
+></i>
+<img
+  class="h-auto max-w-full"
+  [src]="basePath + noteImage"
+  alt="image description"
+/>
+}

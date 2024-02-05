@@ -1,0 +1,24 @@
+<header class="text-gray-600 body-font">
+  <div
+    class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+  >
+    <a routerLink="/notes"
+      class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+    >
+      <img
+        src="https://cdn.pixabay.com/photo/2017/06/10/07/24/note-2389227_960_720.png"
+        alt=""
+      />
+      <span class="ml-3 text-xl">Notes</span>
+    </a>
+    <nav
+      class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center"
+    >
+      <a class="mr-5 hover:text-gray-900" routerLink="/notes">Notes</a>
+      <a class="mr-5 hover:text-gray-900" routerLink="trash"
+        >Trash<i class="ms-1 fa-solid fa-trash text-red-300"></i
+      ></a>
+    </nav>
+  </div>
+</header>
+<router-outlet></router-outlet>

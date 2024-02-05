@@ -1,0 +1,25 @@
+.note-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.btns-div {
+    height: 0;
+    width: 70px;
+    position: absolute;
+    bottom: 0;
+    transition: all .3s ease-in-out;
+}
+.btns-div i{
+    transition: all .3s ease-in-out;
+}
+.btns-div i:hover{
+    transform: translateY(-5px);
+}
+.show{
+    height: 30px;
+}
+.hide{
+    height: 0;
+}
